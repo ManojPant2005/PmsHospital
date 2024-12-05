@@ -1,0 +1,101 @@
+﻿body {
+    background-color: #f8f9fa;
+}
+
+.form-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+    .form-container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-weight: bold;
+        color: #007bff;
+    }
+
+.input-group-text {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-primary {
+    width: 100%;
+}
+
+/* Remove underline from links but keep the color */
+.no-underline {
+    text-decoration: none;
+}
+
+/* Sidebar */
+#wrapper {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+
+#sidebar-wrapper {
+    min-width: 250px;
+    max-width: 250px;
+    background-color: #343a40;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+
+    #sidebar-wrapper .sidebar-heading {
+        padding: 15px;
+        font-size: 1.5em;
+        text-align: center;
+    }
+
+    #sidebar-wrapper .list-group-item {
+        background-color: #343a40;
+        border: none;
+        color: white;
+        font-size: 1.1em;
+    }
+
+        #sidebar-wrapper .list-group-item:hover {
+            background-color: #495057;
+        }
+
+/* Toggled Sidebar */
+#wrapper.toggled #sidebar-wrapper {
+    transform: translateX(-250px);
+}
+
+#page-content-wrapper {
+    flex-grow: 1;
+    margin-left: 250px;
+    transition: all 0.3s ease;
+}
+
+    #page-content-wrapper.toggled {
+        margin-left: 0;
+    }
+
+/* Navbar */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    #wrapper.toggled #sidebar-wrapper {
+        transform: translateX(0);
+    }
+
+    #page-content-wrapper {
+        margin-left: 0;
+    }
+}
