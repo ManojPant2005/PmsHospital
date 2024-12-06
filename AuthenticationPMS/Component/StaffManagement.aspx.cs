@@ -51,7 +51,7 @@ namespace AuthenticationPMS.Component
         {
             if (e.CommandName == "EditDoctor")
             {
-                int index = Convert.ToInt32(e.CommandArgument); 
+                int index = Convert.ToInt32(e.CommandArgument);
                 GridViewRow row = gvDoctors.Rows[index];
                 string doctorID = gvDoctors.DataKeys[row.RowIndex].Value.ToString();
 
@@ -63,6 +63,33 @@ namespace AuthenticationPMS.Component
         {
             gvDoctors.PageIndex = e.NewPageIndex;
             BindDoctorsGridView();
+        }
+
+        protected void btnAddDoctor_Click(object sender, EventArgs e)
+        {
+            string name = txtDoctorName.Text;
+            string specialization = txtSpecialization.Text;
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("USP_AddDoctor", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@Name", name);
+                cmd.Parameters.AddWithValue("@Specialization", specialization);
+
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    BindDoctorsGridView();
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "HideModal", "$('#addDoctorModal').modal('hide');", true);
+                }
+                catch (Exception ex)
+                {
+                    Response.Write($"Error: {ex.Message}");
+                }
+            }
         }
     }
 }

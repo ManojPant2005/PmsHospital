@@ -52,5 +52,30 @@ namespace AuthenticationPMS.Component
         {
             BindPatientGrid(e.NewPageIndex);
         }
+
+        protected void btnAddPatient_Click(object sender, EventArgs e)
+        {
+            string name = txtName.Text;
+            int age = int.Parse(txtAge.Text);
+            string gender = ddlGender.SelectedValue;
+
+            DateTime admissionDate = DateTime.Parse(txtAdmissionDate.Value);
+
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("USP_AddPatient", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Name", name);
+                cmd.Parameters.AddWithValue("@Age", age);
+                cmd.Parameters.AddWithValue("@Gender", gender);
+                cmd.Parameters.AddWithValue("@AdmissionDate", admissionDate);
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+
+
     }
 }
