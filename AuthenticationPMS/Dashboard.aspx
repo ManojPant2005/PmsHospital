@@ -10,44 +10,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
     <link href="~/Content/styles.css" rel="stylesheet" />
+    <link href="Dashboard.aspx.css" rel="stylesheet" />
+
 </head>
 <body>
-
-    <style>
-        
-#sidebar-wrapper {
-    width: 250px;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    transition: none;
-}
-
-.list-group-item {
-    padding: 15px 20px;
-    margin-bottom: 10px;
-}
-
-    .list-group-item.active {
-        background-color: #007bff !important;
-        border-color: #007bff !important;
-    }
-
-.navbar-text {
-    margin-left: auto;
-}
-
-.card-deck {
-    display: flex;
-    gap: 1rem;
-    justify-content: space-between;
-}
-
-.card {
-    width: 30%;
-}
-    </style>
     <form id="form1" runat="server">
         <div class="d-flex" id="wrapper">
             <div class="bg-dark text-white" id="sidebar-wrapper">
@@ -82,7 +48,6 @@
                     <p class="lead">Here you can manage hospital operations efficiently. Use the sidebar to navigate through different sections.</p>
 
                     <div class="card-deck">
-                        <!-- Total Patients Card -->
                         <div class="card text-white bg-primary mb-3">
                             <div class="card-body">
                                 <h5 class="card-title">Total Patients</h5>
@@ -90,7 +55,6 @@
                             </div>
                         </div>
 
-                        <!-- Total Doctors Card -->
                         <div class="card text-white bg-success mb-3">
                             <div class="card-body">
                                 <h5 class="card-title">Total Doctors</h5>
@@ -98,7 +62,6 @@
                             </div>
                         </div>
 
-                        <!-- Active Users Card -->
                         <div class="card text-white bg-warning mb-3">
                             <div class="card-body">
                                 <h5 class="card-title">Active Users</h5>
