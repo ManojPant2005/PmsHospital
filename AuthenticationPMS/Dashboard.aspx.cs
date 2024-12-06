@@ -46,6 +46,28 @@ namespace AuthenticationPMS
                 }
             }
         }
+        protected void RedirectToPatientManagement(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Component/PatientManagement.aspx");
+        }
+
+        protected void RedirectToStaffManagement(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Component/StaffManagement.aspx");
+        }
+
+        protected void RedirectToActiveUsers(object sender, EventArgs e)
+        {
+            string userRole = Session["UserRole"]?.ToString();
+            if (userRole == "Admin")
+            {
+                Response.Redirect("~/Component/ActiveUsers.aspx");
+            }
+            else
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Only Admin can view this.');", true);
+            }
+        }
 
         protected void btnLogout_Click(object sender, EventArgs e)
         {

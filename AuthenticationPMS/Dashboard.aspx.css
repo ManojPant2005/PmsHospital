@@ -1,33 +1,14 @@
-﻿
-#sidebar-wrapper {
-    width: 250px;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    transition: none;
+﻿.navbar-brand img {
+    border-radius: 50%;
 }
 
-.list-group-item {
-    padding: 15px 20px;
-    margin-bottom: 10px;
+.nav-link.active {
+    background-color: #495057;
+    border-radius: 5px;
 }
 
-    .list-group-item.active {
-        background-color: #007bff !important;
-        border-color: #007bff !important;
-    }
-
-.navbar-text {
-    margin-left: auto;
+.card-deck .card {
+    margin-bottom: 20px;
 }
 
-.card-deck {
-    display: flex;
-    gap: 1rem;
-    justify-content: space-between;
-}
 
-.card {
-    width: 30%;
-}
